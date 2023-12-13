@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login_system</title>
+</head>
+<body>
+    <script>
+        const user = [
+    {username: 'andy', password: '1234'},
+    {username: 'bobby', password: '1234'},
+    {username: 'candy', password: '1234'}
+];
+
+let attempts = 0;
+
+while (attempts < 3) {
+    let inp1 = prompt('username');
+    let inp2 = prompt('password');
+    
+    let foundUser = false;
+    let correctPassword = false;
+
+    for (let i = 0; i < user.length; i++) {
+        if (user[i].username === inp1) {
+            foundUser = true;
+            if (user[i].password === inp2) {
+                correctPassword = true;
+                break;
+            }
+        }
+    }
+
+    if (foundUser && correctPassword) {
+        console.log('Welcome');
+        break;
+    } else {
+        console.log('No access');
+        attempts++;
+        
+        if (attempts === 2) {
+            console.log('กรุณาป้อนรหัสผ่านที่ถูกต้องในครั้งสุดท้ายนี้ครับ');
+        }
+    }
+}
+
+if (attempts === 3) {
+    console.log('Maximum attempts reached');
+}
+
+    </script>
+</body>
+</html>
